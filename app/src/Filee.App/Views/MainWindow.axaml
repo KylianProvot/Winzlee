@@ -1,0 +1,149 @@
+<!-- Winzlee: PowerToys-inspired Windows settings navigation, not a promotional dashboard. -->
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:vm="using:Filee.App.ViewModels"
+        x:Class="Filee.App.Views.MainWindow"
+        x:DataType="vm:MainWindowViewModel"
+        Classes="winzlee-shell"
+        Title="Winzlee"
+        Icon="avares://Winzlee/Assets/Icons/winzlee.ico"
+        Width="1120" Height="780" MinWidth="850" MinHeight="580"
+        WindowStartupLocation="CenterScreen">
+  <Window.Resources>
+    <ResourceDictionary>
+      <ResourceDictionary.ThemeDictionaries>
+        <ResourceDictionary x:Key="Light">
+          <!-- PowerToys-like neutral Fluent surfaces; main settings window only. -->
+          <SolidColorBrush x:Key="PageBrush" Color="#F3F3F3" />
+          <SolidColorBrush x:Key="SurfaceBrush" Color="#FFFFFF" />
+          <SolidColorBrush x:Key="SurfaceAltBrush" Color="#F7F7F7" />
+          <SolidColorBrush x:Key="SubtleBorderBrush" Color="#E0E0E0" />
+          <SolidColorBrush x:Key="TextPrimaryBrush" Color="#1C1C1C" />
+          <SolidColorBrush x:Key="TextSecondaryBrush" Color="#626262" />
+          <SolidColorBrush x:Key="ExpanderHeaderForeground" Color="#1C1C1C" />
+          <SolidColorBrush x:Key="ExpanderHeaderForegroundPointerOver" Color="#1C1C1C" />
+          <SolidColorBrush x:Key="ExpanderHeaderForegroundPressed" Color="#1C1C1C" />
+<SolidColorBrush x:Key="WinzleeRailBrush" Color="#F3F3F3" />
+          <SolidColorBrush x:Key="WinzleeRailTextBrush" Color="#1C1C1C" />
+          <SolidColorBrush x:Key="WinzleeRailMutedBrush" Color="#606060" />
+          <SolidColorBrush x:Key="WinzleeRailSelectedBrush" Color="#E8E8E8" />
+          <SolidColorBrush x:Key="WinzleeWorkspaceBrush" Color="#F3F3F3" />
+          <SolidColorBrush x:Key="WinzleeHeaderBrush" Color="#F3F3F3" />
+          <SolidColorBrush x:Key="WinzleePanelBrush" Color="#FFFFFF" />
+          <SolidColorBrush x:Key="WinzleeHeroBrush" Color="#FFFFFF" />
+          <SolidColorBrush x:Key="WinzleeAccentBrush" Color="#0067C0" />
+          <SolidColorBrush x:Key="WinzleeLineBrush" Color="#E0E0E0" />
+        </ResourceDictionary>
+        <ResourceDictionary x:Key="Dark">
+          <!-- Dark Fluent surfaces. -->
+          <SolidColorBrush x:Key="PageBrush" Color="#202020" />
+          <SolidColorBrush x:Key="SurfaceBrush" Color="#2D2D2D" />
+          <SolidColorBrush x:Key="SurfaceAltBrush" Color="#333333" />
+          <SolidColorBrush x:Key="SubtleBorderBrush" Color="#404040" />
+          <SolidColorBrush x:Key="TextPrimaryBrush" Color="#F8F8F8" />
+          <SolidColorBrush x:Key="TextSecondaryBrush" Color="#B5B5B5" />
+          <SolidColorBrush x:Key="ExpanderHeaderForeground" Color="#F8F8F8" />
+          <SolidColorBrush x:Key="ExpanderHeaderForegroundPointerOver" Color="#F8F8F8" />
+          <SolidColorBrush x:Key="ExpanderHeaderForegroundPressed" Color="#F8F8F8" />
+<SolidColorBrush x:Key="WinzleeRailBrush" Color="#202020" />
+          <SolidColorBrush x:Key="WinzleeRailTextBrush" Color="#F8F8F8" />
+          <SolidColorBrush x:Key="WinzleeRailMutedBrush" Color="#B1B1B1" />
+          <SolidColorBrush x:Key="WinzleeRailSelectedBrush" Color="#353535" />
+          <SolidColorBrush x:Key="WinzleeWorkspaceBrush" Color="#202020" />
+          <SolidColorBrush x:Key="WinzleeHeaderBrush" Color="#202020" />
+          <SolidColorBrush x:Key="WinzleePanelBrush" Color="#2D2D2D" />
+          <SolidColorBrush x:Key="WinzleeHeroBrush" Color="#2D2D2D" />
+          <SolidColorBrush x:Key="WinzleeAccentBrush" Color="#4CC2FF" />
+          <SolidColorBrush x:Key="WinzleeLineBrush" Color="#404040" />
+        </ResourceDictionary>
+      </ResourceDictionary.ThemeDictionaries>
+    </ResourceDictionary>
+  </Window.Resources>
+  <Grid ColumnDefinitions="Auto,*">
+    <Border x:Name="WinzleeRail" Grid.Column="0" Width="{Binding SidebarWidth}"
+            Background="{DynamicResource WinzleeRailBrush}"
+            BorderBrush="{DynamicResource WinzleeLineBrush}" BorderThickness="0,0,1,0">
+      <DockPanel Margin="10,12,10,10">
+        <!-- Burger remains available at both widths. -->
+        <StackPanel DockPanel.Dock="Top" Spacing="14">
+          <StackPanel Orientation="Horizontal" Spacing="11">
+            <Button x:Name="NavigationBurger" Classes="navlink"
+                    Command="{Binding ToggleNavigationCommand}"
+                    Width="40" Height="40" Padding="9" HorizontalContentAlignment="Center"
+                    ToolTip.Tip="{DynamicResource winzlee.nav_toggle}"
+                    AutomationProperties.Name="{DynamicResource winzlee.nav_toggle}">
+              <TextBlock Text="☰" FontSize="18" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+            </Button>
+            <Image Width="22" Height="22" Source="avares://Winzlee/Assets/Icons/winzlee.png" IsVisible="{Binding IsNavigationExpanded}" VerticalAlignment="Center"/>
+            <TextBlock Text="Winzlee" IsVisible="{Binding IsNavigationExpanded}"
+                       FontSize="18" FontWeight="SemiBold" VerticalAlignment="Center"
+                       Foreground="{DynamicResource WinzleeRailTextBrush}" />
+          </StackPanel>
+          <Border Height="1" Background="{DynamicResource WinzleeLineBrush}" />
+        </StackPanel>
+        <!-- The bottom two pages stay at the bottom in the requested order. -->
+        <StackPanel DockPanel.Dock="Bottom" Spacing="3" Margin="0,12,0,0">
+          <Border Height="1" Background="{DynamicResource WinzleeLineBrush}" Margin="0,0,0,7" />
+          <Button x:Name="GeneralNavigationButton" Classes="navlink"
+                  Classes.active="{Binding IsGeneralSelected}" Command="{Binding OpenGeneralCommand}"
+                  ToolTip.Tip="{DynamicResource nav.general}" HorizontalContentAlignment="Left">
+            <StackPanel Orientation="Horizontal" Spacing="12">
+              <PathIcon Data="{StaticResource Icon.Settings}" Width="18" Height="18"/>
+              <TextBlock Text="{DynamicResource nav.general}" IsVisible="{Binding IsNavigationExpanded}"
+                         VerticalAlignment="Center"/>
+            </StackPanel>
+          </Button>
+          <Button x:Name="AboutNavigationButton" Classes="navlink"
+                  Classes.active="{Binding IsAboutSelected}" Command="{Binding OpenAboutCommand}"
+                  ToolTip.Tip="{DynamicResource nav.about}" HorizontalContentAlignment="Left">
+            <StackPanel Orientation="Horizontal" Spacing="12">
+              <PathIcon Data="{StaticResource Icon.Info}" Width="18" Height="18"/>
+              <TextBlock Text="{DynamicResource nav.about}" IsVisible="{Binding IsNavigationExpanded}"
+                         VerticalAlignment="Center"/>
+            </StackPanel>
+          </Button>
+          <Button Classes="navlink" Click="OnOpenGitHub" IsVisible="{Binding IsNavigationExpanded}"
+                  ToolTip.Tip="{Binding RepositoryUrl}" HorizontalContentAlignment="Left">
+            <StackPanel Orientation="Horizontal" Spacing="12">
+              <PathIcon Data="{StaticResource Icon.GitHub}" Width="18" Height="18"/>
+              <TextBlock Text="{DynamicResource shell.project}" VerticalAlignment="Center"/>
+            </StackPanel>
+          </Button>
+          <TextBlock Text="{Binding VersionText}" Classes="caption" Margin="11,6,0,0"
+                     IsVisible="{Binding IsNavigationExpanded}"/>
+        </StackPanel>
+        <ListBox x:Name="PrimaryNavigation" Classes="nav"
+                 ItemsSource="{Binding PrimaryItems}" SelectedItem="{Binding SelectedPrimaryItem}"
+                 Background="Transparent" BorderThickness="0" Padding="0" Margin="0,12,0,0"
+                 HorizontalAlignment="Stretch">
+          <ListBox.ItemTemplate>
+            <DataTemplate x:DataType="vm:NavItem">
+              <StackPanel Orientation="Horizontal" Spacing="12"
+                          ToolTip.Tip="{Binding Title}">
+                <PathIcon Width="18" Height="18" Data="{Binding Icon}" VerticalAlignment="Center"/>
+                <TextBlock Text="{Binding Title}" VerticalAlignment="Center"
+                           IsVisible="{Binding $parent[Window].((vm:MainWindowViewModel)DataContext).IsNavigationExpanded}"/>
+              </StackPanel>
+            </DataTemplate>
+          </ListBox.ItemTemplate>
+        </ListBox>
+      </DockPanel>
+    </Border>
+
+    <Grid x:Name="WinzleeWorkspace" Grid.Column="1" RowDefinitions="64,*"
+          Background="{DynamicResource WinzleeWorkspaceBrush}">
+      <Border Grid.Row="0" Background="{DynamicResource WinzleeHeaderBrush}"
+              BorderBrush="{DynamicResource WinzleeLineBrush}" BorderThickness="0,0,0,1">
+        <DockPanel Margin="28,0">
+          <TextBlock Text="{Binding SelectedItem.Title}" FontSize="20" FontWeight="SemiBold"
+                     Foreground="{DynamicResource TextPrimaryBrush}" VerticalAlignment="Center"/>
+        </DockPanel>
+      </Border>
+      <ScrollViewer Grid.Row="1" x:Name="PageScroller"
+                    VerticalScrollBarVisibility="{Binding PageScroll}">
+        <ContentControl Classes="page" Content="{Binding CurrentPage}"
+                        Margin="28,24,28,34" MaxWidth="1040" HorizontalAlignment="Stretch"/>
+      </ScrollViewer>
+    </Grid>
+  </Grid>
+</Window>

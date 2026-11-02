@@ -1,0 +1,26 @@
+name: Demander un format de conversion
+description: Proposer la prise en charge d'un nouveau format dans Winzlee
+title: "[Format] "
+labels: ["enhancement"]
+body:
+  - type: input
+    id: source
+    attributes:
+      label: Format source
+      placeholder: ".heic, .pdf, etc."
+    validations:
+      required: true
+  - type: input
+    id: target
+    attributes:
+      label: Format de destination souhaité
+      placeholder: ".png, .docx, etc."
+    validations:
+      required: true
+  - type: textarea
+    id: scenario
+    attributes:
+      label: Utilisation prévue
+      description: Décrivez le besoin et, si possible, une application capable d'effectuer cette conversion. Ne joignez pas de fichiers confidentiels.
+    validations:
+      required: true

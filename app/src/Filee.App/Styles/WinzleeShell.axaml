@@ -1,0 +1,134 @@
+<!-- Scoped to the Winzlee main window. No settings, conversion algorithms or radial popups are changed. -->
+<Styles xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <Style Selector="Window.winzlee-shell">
+    <Setter Property="Background" Value="{DynamicResource WinzleeWorkspaceBrush}"/>
+    <Setter Property="FontFamily" Value="Segoe UI Variable, Segoe UI, sans-serif"/>
+    <Setter Property="FontSize" Value="14"/>
+  </Style>
+
+  <Style Selector="Window.winzlee-shell TextBlock.winzlee-group-title">
+    <Setter Property="FontSize" Value="12"/>
+    <Setter Property="FontWeight" Value="SemiBold"/>
+    <Setter Property="Foreground" Value="{DynamicResource WinzleeAccentBrush}"/>
+    <Setter Property="Margin" Value="0,12,0,-8"/>
+  </Style>
+
+  <Style Selector="Window.winzlee-shell TextBlock.h1">
+    <Setter Property="FontSize" Value="26"/>
+    <Setter Property="FontWeight" Value="SemiBold"/>
+  </Style>
+  <Style Selector="Window.winzlee-shell TextBlock.h2">
+    <Setter Property="FontSize" Value="17"/>
+  </Style>
+
+  <Style Selector="Window.winzlee-shell Border.card">
+    <Setter Property="Background" Value="{DynamicResource WinzleePanelBrush}"/>
+    <Setter Property="BorderBrush" Value="{DynamicResource WinzleeLineBrush}"/>
+    <Setter Property="BorderThickness" Value="1"/>
+    <Setter Property="CornerRadius" Value="4"/>
+    <Setter Property="BoxShadow" Value="none"/>
+  </Style>
+
+  <Style Selector="Window.winzlee-shell ListBox.nav ListBoxItem">
+    <Setter Property="Foreground" Value="{DynamicResource WinzleeRailTextBrush}"/>
+    <Setter Property="CornerRadius" Value="4"/>
+    <Setter Property="Padding" Value="10,10"/>
+    <Setter Property="Margin" Value="0,2"/>
+    <Setter Property="RenderTransform" Value="none"/>
+  </Style>
+  <Style Selector="Window.winzlee-shell ListBox.nav ListBoxItem:pointerover">
+    <Setter Property="RenderTransform" Value="none"/>
+    <Setter Property="Background" Value="{DynamicResource WinzleeRailSelectedBrush}"/>
+  </Style>
+  <Style Selector="Window.winzlee-shell ListBox.nav ListBoxItem:selected /template/ ContentPresenter#PART_ContentPresenter">
+    <Setter Property="Background" Value="{DynamicResource WinzleeRailSelectedBrush}"/>
+    <Setter Property="Foreground" Value="{DynamicResource WinzleeRailTextBrush}"/>
+  </Style>
+  <Style Selector="Window.winzlee-shell ListBox.nav ListBoxItem:selected:pointerover /template/ ContentPresenter#PART_ContentPresenter">
+    <Setter Property="Background" Value="{DynamicResource WinzleeRailSelectedBrush}"/>
+  </Style>
+  <Style Selector="Window.winzlee-shell Button.navlink">
+    <Setter Property="Background" Value="Transparent"/>
+    <Setter Property="Foreground" Value="{DynamicResource WinzleeRailTextBrush}"/>
+    <Setter Property="BorderThickness" Value="0"/>
+    <Setter Property="CornerRadius" Value="4"/>
+    <Setter Property="Padding" Value="12,10"/>
+  </Style>
+  <Style Selector="Window.winzlee-shell Button.navlink:pointerover">
+    <Setter Property="Background" Value="{DynamicResource WinzleeRailSelectedBrush}"/>
+  </Style>
+
+  <Style Selector="Window.winzlee-shell Button.navlink.active">
+    <Setter Property="Background" Value="{DynamicResource WinzleeRailSelectedBrush}"/>
+    <Setter Property="FontWeight" Value="SemiBold"/>
+  </Style>
+
+  <Style Selector="Window.winzlee-shell Button.winzlee-action">
+    <Setter Property="Background" Value="{DynamicResource WinzleePanelBrush}"/>
+    <Setter Property="BorderBrush" Value="{DynamicResource WinzleeLineBrush}"/>
+    <Setter Property="BorderThickness" Value="1"/>
+    <Setter Property="CornerRadius" Value="4"/>
+    <Setter Property="Padding" Value="18,16"/>
+    <Setter Property="HorizontalContentAlignment" Value="Stretch"/>
+    <Setter Property="VerticalContentAlignment" Value="Stretch"/>
+    <Setter Property="RenderTransform" Value="none"/>
+  </Style>
+  <Style Selector="Window.winzlee-shell Button.winzlee-action:pointerover">
+    <Setter Property="BorderBrush" Value="{DynamicResource WinzleeAccentBrush}"/>
+    <Setter Property="RenderTransform" Value="none"/>
+  </Style>
+  <Style Selector="Window.winzlee-shell Button.winzlee-action:pressed">
+    <Setter Property="RenderTransform" Value="none"/>
+  </Style>
+  <Style Selector="Window.winzlee-shell Button:pressed">
+    <Setter Property="RenderTransform" Value="none"/>
+  </Style>
+
+  <Style Selector="Window.winzlee-shell Border#DropZone">
+    <Setter Property="CornerRadius" Value="4"/>
+    <Setter Property="RenderTransform" Value="none"/>
+  </Style>
+  <Style Selector="Window.winzlee-shell Border#DropZone.over">
+    <Setter Property="BorderBrush" Value="{DynamicResource WinzleeAccentBrush}"/>
+    <Setter Property="RenderTransform" Value="none"/>
+  </Style>
+  <!-- v0.6 changes only typography, colors and control shape. -->
+  <Style Selector="Window.winzlee-shell Button, Window.winzlee-shell ToggleButton, Window.winzlee-shell RepeatButton">
+    <Setter Property="CornerRadius" Value="4"/>
+  </Style>
+  <Style Selector="Window.winzlee-shell TextBox, Window.winzlee-shell ComboBox, Window.winzlee-shell NumericUpDown">
+    <Setter Property="CornerRadius" Value="4"/>
+    <Setter Property="Foreground" Value="{DynamicResource TextPrimaryBrush}"/>
+  </Style>
+  <Style Selector="Window.winzlee-shell Expander">
+    <Setter Property="CornerRadius" Value="4"/>
+    <Setter Property="Foreground" Value="{DynamicResource TextPrimaryBrush}"/>
+  </Style>
+  <!-- The Fluent header ToggleButton should keep neutral text when expanded. -->
+  <Style Selector="Window.winzlee-shell Expander /template/ ToggleButton#ExpanderHeader">
+    <Setter Property="Foreground" Value="{DynamicResource TextPrimaryBrush}"/>
+    <Setter Property="CornerRadius" Value="4"/>
+  </Style>
+  <!-- Hover and expanded states paint the whole header, not a dark outer button
+       containing a detached coloured ContentPresenter. -->
+  <Style Selector="Window.winzlee-shell Expander /template/ ToggleButton#ExpanderHeader:pointerover">
+    <Setter Property="Background" Value="{DynamicResource AccentSoftBrush}"/>
+    <Setter Property="Foreground" Value="{DynamicResource TextPrimaryBrush}"/>
+  </Style>
+  <Style Selector="Window.winzlee-shell Expander:expanded /template/ ToggleButton#ExpanderHeader">
+    <Setter Property="Foreground" Value="{DynamicResource TextPrimaryBrush}"/>
+    <Setter Property="Background" Value="{DynamicResource AccentSoftBrush}"/>
+  </Style>
+  <Style Selector="Window.winzlee-shell Expander /template/ ToggleButton#ExpanderHeader /template/ ContentPresenter#PART_ContentPresenter">
+    <Setter Property="Background" Value="Transparent"/>
+    <Setter Property="Foreground" Value="{DynamicResource TextPrimaryBrush}"/>
+  </Style>
+  <Style Selector="Window.winzlee-shell Expander:expanded /template/ ToggleButton#ExpanderHeader /template/ ContentPresenter#PART_ContentPresenter">
+    <Setter Property="Foreground" Value="{DynamicResource TextPrimaryBrush}"/>
+  </Style>
+  <Style Selector="Window.winzlee-shell ComboBoxItem:selected /template/ ContentPresenter#PART_ContentPresenter">
+    <Setter Property="Foreground" Value="{DynamicResource TextPrimaryBrush}"/>
+    <Setter Property="Background" Value="{DynamicResource WinzleeRailSelectedBrush}"/>
+  </Style>
+</Styles>

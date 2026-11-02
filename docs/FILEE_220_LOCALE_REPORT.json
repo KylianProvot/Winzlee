@@ -1,0 +1,156 @@
+{
+  "locales": {
+    "ar.json": {
+      "official_2_2_keys": 1228,
+      "winzlee_overrides": 53,
+      "result": 1276
+    },
+    "de.json": {
+      "official_2_2_keys": 1228,
+      "winzlee_overrides": 0,
+      "result": 1276
+    },
+    "en.json": {
+      "official_2_2_keys": 1228,
+      "winzlee_overrides": 154,
+      "result": 1276
+    },
+    "es.json": {
+      "official_2_2_keys": 1228,
+      "winzlee_overrides": 53,
+      "result": 1276
+    },
+    "fr.json": {
+      "official_2_2_keys": 1228,
+      "winzlee_overrides": 155,
+      "result": 1276
+    },
+    "hi.json": {
+      "official_2_2_keys": 1228,
+      "winzlee_overrides": 53,
+      "result": 1276
+    },
+    "ja.json": {
+      "official_2_2_keys": 1228,
+      "winzlee_overrides": 53,
+      "result": 1276
+    },
+    "ko.json": {
+      "official_2_2_keys": 1228,
+      "winzlee_overrides": 53,
+      "result": 1276
+    },
+    "ne.json": {
+      "official_2_2_keys": 1228,
+      "winzlee_overrides": 53,
+      "result": 1276
+    },
+    "pl.json": {
+      "official_2_2_keys": 1228,
+      "winzlee_overrides": 53,
+      "result": 1276
+    },
+    "pt-BR.json": {
+      "official_2_2_keys": 1228,
+      "winzlee_overrides": 53,
+      "result": 1276
+    },
+    "pt-PT.json": {
+      "official_2_2_keys": 1228,
+      "winzlee_overrides": 53,
+      "result": 1276
+    },
+    "ru.json": {
+      "official_2_2_keys": 1228,
+      "winzlee_overrides": 53,
+      "result": 1276
+    },
+    "th.json": {
+      "official_2_2_keys": 1228,
+      "winzlee_overrides": 53,
+      "result": 1276
+    },
+    "tr.json": {
+      "official_2_2_keys": 1228,
+      "winzlee_overrides": 53,
+      "result": 1276
+    },
+    "zh-CN.json": {
+      "official_2_2_keys": 1228,
+      "winzlee_overrides": 53,
+      "result": 1276
+    },
+    "zh-TW.json": {
+      "official_2_2_keys": 1228,
+      "winzlee_overrides": 53,
+      "result": 1276
+    }
+  },
+  "harmonization": {
+    "ar.json": {
+      "missing_keys_filled": 0,
+      "placeholder_repairs": 0
+    },
+    "de.json": {
+      "missing_keys_filled": 48,
+      "placeholder_repairs": 0
+    },
+    "es.json": {
+      "missing_keys_filled": 0,
+      "placeholder_repairs": 0
+    },
+    "fr.json": {
+      "missing_keys_filled": 0,
+      "placeholder_repairs": 0
+    },
+    "hi.json": {
+      "missing_keys_filled": 0,
+      "placeholder_repairs": 0
+    },
+    "ja.json": {
+      "missing_keys_filled": 0,
+      "placeholder_repairs": 0
+    },
+    "ko.json": {
+      "missing_keys_filled": 0,
+      "placeholder_repairs": 0
+    },
+    "ne.json": {
+      "missing_keys_filled": 0,
+      "placeholder_repairs": 0
+    },
+    "pl.json": {
+      "missing_keys_filled": 0,
+      "placeholder_repairs": 0
+    },
+    "pt-BR.json": {
+      "missing_keys_filled": 0,
+      "placeholder_repairs": 0
+    },
+    "pt-PT.json": {
+      "missing_keys_filled": 0,
+      "placeholder_repairs": 0
+    },
+    "ru.json": {
+      "missing_keys_filled": 0,
+      "placeholder_repairs": 0
+    },
+    "th.json": {
+      "missing_keys_filled": 0,
+      "placeholder_repairs": 0
+    },
+    "tr.json": {
+      "missing_keys_filled": 0,
+      "placeholder_repairs": 0
+    },
+    "zh-CN.json": {
+      "missing_keys_filled": 0,
+      "placeholder_repairs": 0
+    },
+    "zh-TW.json": {
+      "missing_keys_filled": 0,
+      "placeholder_repairs": 0
+    }
+  },
+  "fixed_avalonia_references": []
+}

@@ -1,0 +1,175 @@
+{
+  "from": "v2.1.0",
+  "to": "v2.2.0",
+  "statistics": {
+    "imported": 123,
+    "merged": 39,
+    "protected": 1,
+    "additions": 64,
+    "deleted": 0,
+    "conflicts": 0,
+    "binary_kept": 0
+  },
+  "exceptions": [
+    {
+      "file": "src/Filee.App/Assets/i18n/ar.json",
+      "result": "three-way merged"
+    },
+    {
+      "file": "src/Filee.App/Assets/i18n/en.json",
+      "result": "three-way merged"
+    },
+    {
+      "file": "src/Filee.App/Assets/i18n/es.json",
+      "result": "three-way merged"
+    },
+    {
+      "file": "src/Filee.App/Assets/i18n/fr.json",
+      "result": "three-way merged"
+    },
+    {
+      "file": "src/Filee.App/Assets/i18n/hi.json",
+      "result": "three-way merged"
+    },
+    {
+      "file": "src/Filee.App/Assets/i18n/ja.json",
+      "result": "three-way merged"
+    },
+    {
+      "file": "src/Filee.App/Assets/i18n/ko.json",
+      "result": "three-way merged"
+    },
+    {
+      "file": "src/Filee.App/Assets/i18n/ne.json",
+      "result": "three-way merged"
+    },
+    {
+      "file": "src/Filee.App/Assets/i18n/pl.json",
+      "result": "three-way merged"
+    },
+    {
+      "file": "src/Filee.App/Assets/i18n/pt-BR.json",
+      "result": "three-way merged"
+    },
+    {
+      "file": "src/Filee.App/Assets/i18n/pt-PT.json",
+      "result": "three-way merged"
+    },
+    {
+      "file": "src/Filee.App/Assets/i18n/ru.json",
+      "result": "three-way merged"
+    },
+    {
+      "file": "src/Filee.App/Assets/i18n/th.json",
+      "result": "three-way merged"
+    },
+    {
+      "file": "src/Filee.App/Assets/i18n/tr.json",
+      "result": "three-way merged"
+    },
+    {
+      "file": "src/Filee.App/Assets/i18n/zh-CN.json",
+      "result": "three-way merged"
+    },
+    {
+      "file": "src/Filee.App/Assets/i18n/zh-TW.json",
+      "result": "three-way merged"
+    },
+    {
+      "file": "src/Filee.App/Program.cs",
+      "result": "three-way merged"
+    },
+    {
+      "file": "src/Filee.App/Services/LocalizationService.cs",
+      "result": "three-way merged"
+    },
+    {
+      "file": "src/Filee.App/Services/Triggers/TriggerService.cs",
+      "result": "preserved Winzlee"
+    },
+    {
+      "file": "src/Filee.App/ViewModels/Pages/HomePageViewModel.cs",
+      "result": "three-way merged"
+    },
+    {
+      "file": "src/Filee.App/Views/CropOverlayWindow.axaml",
+      "result": "three-way merged"
+    },
+    {
+      "file": "src/Filee.App/Views/ElevationNoticeWindow.axaml",
+      "result": "three-way merged"
+    },
+    {
+      "file": "src/Filee.App/Views/FeedbackNoticeWindow.axaml",
+      "result": "three-way merged"
+    },
+    {
+      "file": "src/Filee.App/Views/FormatRequestNoticeWindow.axaml",
+      "result": "three-way merged"
+    },
+    {
+      "file": "src/Filee.App/Views/GroupEditorWindow.axaml",
+      "result": "three-way merged"
+    },
+    {
+      "file": "src/Filee.App/Views/LibreOfficeOptionsWindow.axaml",
+      "result": "three-way merged"
+    },
+    {
+      "file": "src/Filee.App/Views/MergeOrderWindow.axaml",
+      "result": "three-way merged"
+    },
+    {
+      "file": "src/Filee.App/Views/Pages/GeneralPage.axaml",
+      "result": "three-way merged"
+    },
+    {
+      "file": "src/Filee.App/Views/Pages/HomePage.axaml",
+      "result": "three-way merged"
+    },
+    {
+      "file": "src/Filee.App/Views/Pages/PresetsPage.axaml",
+      "result": "three-way merged"
+    },
+    {
+      "file": "src/Filee.App/Views/Pages/ToolbarPage.axaml",
+      "result": "three-way merged"
+    },
+    {
+      "file": "src/Filee.App/Views/PdfPageEditorWindow.axaml",
+      "result": "three-way merged"
+    },
+    {
+      "file": "src/Filee.App/Views/RenameToolWindow.axaml",
+      "result": "three-way merged"
+    },
+    {
+      "file": "src/Filee.App/Views/UpdateNoticeWindow.axaml",
+      "result": "three-way merged"
+    },
+    {
+      "file": "src/Filee.App/Views/WhatsNewWindow.axaml",
+      "result": "three-way merged"
+    },
+    {
+      "file": "src/Filee.Core/Settings/AppSettings.cs",
+      "result": "three-way merged"
+    },
+    {
+      "file": "src/Filee.Core/Settings/UserDataStore.cs",
+      "result": "three-way merged"
+    },
+    {
+      "file": "src/Filee.Platform.Windows/WindowsPlatformServices.cs",
+      "result": "three-way merged"
+    },
+    {
+      "file": "tests/Filee.App.Tests/LocalizationTests.cs",
+      "result": "three-way merged"
+    },
+    {
+      "file": "tests/Filee.App.Tests/RenderTests.cs",
+      "result": "three-way merged"
+    }
+  ]
+}

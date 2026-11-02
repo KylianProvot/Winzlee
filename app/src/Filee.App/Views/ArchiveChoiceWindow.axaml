@@ -1,0 +1,80 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:vm="using:Filee.App.ViewModels"
+        x:Class="Filee.App.Views.ArchiveChoiceWindow"
+        x:DataType="vm:ArchiveChoiceViewModel"
+        Title="{DynamicResource winzlee.archive.title}"
+        Icon="avares://Winzlee/Assets/Icons/winzlee.ico"
+        Width="550" MinWidth="480" SizeToContent="Height" CanResize="False"
+        WindowStartupLocation="CenterScreen">
+  <DockPanel>
+    <Border DockPanel.Dock="Bottom" Padding="20,12" BorderThickness="0,1,0,0"
+            BorderBrush="{DynamicResource SubtleBorderBrush}" Background="{DynamicResource SurfaceBrush}">
+      <StackPanel Orientation="Horizontal" Spacing="8" HorizontalAlignment="Right">
+        <Button x:Name="CancelArchive" Content="{DynamicResource common.cancel}" Click="OnCancel"/>
+        <Button x:Name="StartArchive" Classes="accent" Content="{Binding StartLabel}" Click="OnStart"
+                IsEnabled="{Binding CanStart}"/>
+      </StackPanel>
+    </Border>
+    <StackPanel Margin="20,20,20,18" Spacing="16">
+      <StackPanel Spacing="5">
+        <TextBlock Classes="h2" Text="{Binding Heading}" TextTrimming="CharacterEllipsis"/>
+        <TextBlock Classes="caption" TextWrapping="Wrap"
+                   Text="{DynamicResource winzlee.archive.intro}"/>
+      </StackPanel>
+
+      <StackPanel Spacing="12" IsVisible="{Binding IsExtraction}">
+        <TextBlock Classes="label" Text="{DynamicResource winzlee.archive.mode_title}"/>
+        <Border Classes="card" Padding="12">
+          <StackPanel Spacing="10">
+            <RadioButton GroupName="ArchiveMode" IsChecked="{Binding ClassicSelected}" IsEnabled="{Binding CanEdit}"
+                         Content="{DynamicResource winzlee.archive.classic}"/>
+            <TextBlock Classes="caption" Margin="25,0,0,0" TextWrapping="Wrap"
+                       Text="{DynamicResource winzlee.archive.classic_hint}"/>
+            <RadioButton GroupName="ArchiveMode" IsChecked="{Binding OptimizedSelected}" IsEnabled="{Binding CanChooseHatch}"
+                         Content="{DynamicResource winzlee.archive.optimized}"/>
+            <TextBlock Classes="caption" Margin="25,0,0,0" TextWrapping="Wrap"
+                       Text="{DynamicResource winzlee.archive.optimized_hint}"/>
+          </StackPanel>
+        </Border>
+        <TextBlock Classes="caption" TextWrapping="Wrap" IsVisible="{Binding HatchUnavailable}"
+                   Text="{DynamicResource winzlee.archive.hatch_unavailable}"/>
+        <Border Classes="card" Padding="12" IsVisible="{Binding ShowAcknowledgement}">
+          <StackPanel Spacing="8">
+            <TextBlock FontWeight="SemiBold" TextWrapping="Wrap" Text="{DynamicResource winzlee.archive.risk_title}"/>
+            <TextBlock Classes="caption" TextWrapping="Wrap" Text="{Binding Warning}"/>
+            <CheckBox IsChecked="{Binding Acknowledged}" IsEnabled="{Binding CanEdit}"
+                      Content="{DynamicResource winzlee.archive.risk_confirm}"/>
+          </StackPanel>
+        </Border>
+      </StackPanel>
+
+      <StackPanel Spacing="8">
+        <TextBlock Classes="label" Text="{Binding DestinationLabel}"/>
+        <DockPanel>
+          <Button DockPanel.Dock="Right" Margin="8,0,0,0" Content="{DynamicResource winzlee.archive.pick_destination}"
+                  Click="OnBrowseDestination" IsEnabled="{Binding CanEdit}"/>
+          <TextBox Text="{Binding Destination}" IsEnabled="{Binding CanEdit}" HorizontalAlignment="Stretch"
+                   PlaceholderText="{Binding DestinationLabel}" />
+        </DockPanel>
+      </StackPanel>
+
+      <StackPanel Spacing="12" IsVisible="{Binding IsCompression}">
+        <StackPanel Orientation="Horizontal" Spacing="8">
+          <TextBlock Classes="label" Text="{DynamicResource winzlee.archive.format}"/>
+          <TextBlock Text="ⓘ" Foreground="{DynamicResource TextSecondaryBrush}" ToolTip.Tip="{Binding FormatHelp}"/>
+        </StackPanel>
+        <ComboBox ItemsSource="{Binding FormatChoices}" SelectedItem="{Binding SelectedFormat}"
+                  IsEnabled="{Binding CanEdit}"/>
+        <TextBlock Classes="label" Text="{DynamicResource winzlee.archive.compression}"/>
+        <ComboBox ItemsSource="{Binding LevelChoices}" SelectedItem="{Binding SelectedLevel}"
+                  IsEnabled="{Binding CanEdit}"/>
+        <TextBlock Classes="caption" TextWrapping="Wrap"
+                   Text="{DynamicResource winzlee.archive.compression_hint}"/>
+      </StackPanel>
+
+      <TextBlock Classes="caption" TextWrapping="Wrap" Text="{Binding Status}"
+                 IsVisible="{Binding Status, Converter={x:Static StringConverters.IsNotNullOrEmpty}}"/>
+    </StackPanel>
+  </DockPanel>
+</Window>

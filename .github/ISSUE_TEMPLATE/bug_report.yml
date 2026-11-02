@@ -1,0 +1,42 @@
+name: Signaler un bug Winzlee
+description: Décrire un dysfonctionnement de Winzlee sur Windows
+title: "[Bug] "
+labels: ["bug"]
+body:
+  - type: textarea
+    id: description
+    attributes:
+      label: Description du problème
+      description: Expliquez le comportement observé et celui attendu.
+    validations:
+      required: true
+  - type: textarea
+    id: reproduce
+    attributes:
+      label: Étapes pour reproduire
+      placeholder: |
+        1. Ouvrir Winzlee…
+        2. Sélectionner…
+        3. Observer…
+    validations:
+      required: true
+  - type: input
+    id: version
+    attributes:
+      label: Version de Winzlee
+      placeholder: "1.0.0-rc1"
+    validations:
+      required: true
+  - type: dropdown
+    id: edition
+    attributes:
+      label: Édition
+      options:
+        - Installateur
+        - Portable
+        - Autre / inconnue
+  - type: textarea
+    id: context
+    attributes:
+      label: Environnement et détails utiles
+      description: Version de Windows, format des fichiers, messages d'erreur. Ne joignez pas de données privées ou confidentielles.

@@ -1,0 +1,75 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:vm="using:Filee.App.ViewModels.Pages"
+             xmlns:c="using:Filee.App.Controls"
+             xmlns:v="using:Filee.App.Views"
+             x:Class="Filee.App.Views.Pages.AboutPage"
+             x:DataType="vm:AboutPageViewModel">
+  <StackPanel Spacing="18">
+    <TextBlock Classes="h1" Text="{DynamicResource about.title}" />
+    <Border Classes="card">
+      <StackPanel Orientation="Horizontal" Spacing="18">
+        <Image Source="avares://Winzlee/Assets/Icons/winzlee.png" Width="72" Height="72" Stretch="Uniform" />
+        <StackPanel VerticalAlignment="Center" Spacing="4">
+          <TextBlock Text="Winzlee" FontSize="24" FontWeight="Bold" />
+          <TextBlock Classes="muted" Text="{Binding Version}" />
+          <Button Classes="ghost" Padding="0" Click="OnOpenRepository" Margin="0,4,0,0">
+            <StackPanel Orientation="Horizontal" Spacing="6">
+              <PathIcon Width="13" Height="13" Data="{StaticResource Icon.Link}" Foreground="{DynamicResource AccentBrush}" />
+              <TextBlock Text="{Binding RepositoryUrl}" Foreground="{DynamicResource AccentBrush}" />
+            </StackPanel>
+          </Button>
+          <!-- This version's "What's new" slides again -->
+          <Button x:Name="WhatsNewLink" Classes="ghost" Padding="0" Command="{Binding ShowWhatsNewCommand}" IsVisible="{Binding HasWhatsNew}">
+            <StackPanel Orientation="Horizontal" Spacing="6">
+              <PathIcon Width="13" Height="13" Data="{StaticResource Icon.Info}" Foreground="{DynamicResource AccentBrush}" />
+              <TextBlock Text="{Binding WhatsNewText}" Foreground="{DynamicResource AccentBrush}" />
+            </StackPanel>
+          </Button>
+        </StackPanel>
+      </StackPanel>
+    </Border>
+    <Border Classes="card">
+      <StackPanel Spacing="10">
+        <TextBlock Classes="h2" Text="{DynamicResource winzlee.credits_heading}"/>
+        <TextBlock Text="{DynamicResource winzlee.credits_filee}" TextWrapping="Wrap"/>
+        <TextBlock Text="{DynamicResource winzlee.credits_av}" TextWrapping="Wrap"/>
+        <TextBlock Text="{DynamicResource winzlee.credits_powertoys}" TextWrapping="Wrap"/>
+        <TextBlock Text="{DynamicResource winzlee.credits_chatgpt}" TextWrapping="Wrap"/>
+        <TextBlock Classes="caption" Text="{DynamicResource winzlee.credits_hatchzip}" TextWrapping="Wrap"/>
+      </StackPanel>
+    </Border>
+    <Border Classes="card">
+      <StackPanel Spacing="12">
+        <TextBlock Classes="h2" Text="{DynamicResource about.updates}" />
+        <ToggleSwitch Content="{DynamicResource general.check_updates}" IsChecked="{Binding CheckForUpdates}" />
+        <WrapPanel>
+          <Button Content="{DynamicResource general.check_now}" Command="{Binding CheckNowCommand}" Margin="0,0,10,0" />
+          <Button Classes="accent" Command="{Binding DownloadUpdateCommand}" IsVisible="{Binding UpdateAvailable}" Margin="0,0,10,0">
+            <StackPanel Orientation="Horizontal" Spacing="6">
+              <PathIcon Width="13" Height="13" Data="{StaticResource Icon.Download}" />
+              <TextBlock Text="{Binding UpdateButtonText}" />
+            </StackPanel>
+          </Button>
+          <TextBlock Classes="muted" VerticalAlignment="Center" Text="{Binding UpdateStatus}" />
+        </WrapPanel>
+      </StackPanel>
+    </Border>
+    <Border Classes="card">
+      <StackPanel Spacing="10">
+        <TextBlock Classes="h2" Text="{DynamicResource shell.contribute}" />
+        <TextBlock Classes="muted" TextWrapping="Wrap" Text="{DynamicResource shell.contribute_hint}" />
+        <WrapPanel>
+          <Button Classes="accent" Click="OnStar" Margin="0,0,8,0" Content="{DynamicResource feedback.star}" />
+          <Button Click="OnIssue" Content="{DynamicResource feedback.issue}" Margin="0,0,8,0" />
+        </WrapPanel>
+      </StackPanel>
+    </Border>
+    <Expander x:Name="ThirdPartyNoticesExpander" Header="{DynamicResource about.notices}" IsExpanded="False">
+      <Border Classes="card" Padding="14" Margin="0,8,0,0">
+        <!-- Legal notices must remain complete and accessible. -->
+        <c:MarkdownView Markdown="{Binding Notices}" SkipTitle="True" FlowDirection="LeftToRight" />
+      </Border>
+    </Expander>
+  </StackPanel>
+</UserControl>

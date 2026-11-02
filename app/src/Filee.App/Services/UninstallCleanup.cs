@@ -1,0 +1,61 @@
+// Removes Winzlee-owned per-user integration and downloaded engines after exit; settings remain for reinstalling.
+
+using Filee.Core.Platform;
+using Filee.Core.Settings;
+using Filee.Platform.Linux;
+using Filee.Platform.MacOS;
+using Filee.Platform.Windows;
+
+namespace Filee.App.Services;
+
+internal static class UninstallCleanup
+{
+    public static bool Run()
+    {
+        IPlatformServices platform = OperatingSystem.IsWindows() ? new WindowsPlatformServices()
+            : OperatingSystem.IsMacOS() ? new MacOSPlatformServices()
+            : OperatingSystem.IsLinux() ? new LinuxPlatformServices() : new NullPlatformServices();
+        var succeeded = true;
+        // A copy with WINZLEE_DATA_DIR never registered system integration: only its own engines go.
+        var integrated = UserDataStore.OverrideDirectory is null;
+        if (integrated)
+        {
+            Clean(() => platform.SetContextMenu(false, "", ""));
+            Clean(() => platform.SetStartWithSystem(false, ""));
+        }
+        if (integrated && OperatingSystem.IsLinux() && platform is LinuxPlatformServices linux)
+            Clean(() => linux.SetThunarShortcut(null));
+        if (integrated && OperatingSystem.IsWindows() && ExplorerMenuRegistration.IsSupportedOs)
+        {
+            Clean(() =>
+            {
+                var task = ExplorerMenuRegistration.RemoveAsync(allowElevation: false);
+                if (!task.Wait(TimeSpan.FromSeconds(40)))
+                    throw new TimeoutException("Timed out removing the Explorer menu.");
+                if (!task.Result.Succeeded)
+                    throw new IOException(task.Result.Error ?? "Could not remove the Explorer menu.");
+            });
+        }
+        if (succeeded)
+        {
+            Clean(() =>
+            {
+                // The separate Winzlee directory is intentional: never remove upstream Filee's engines.
+                var engines = Filee.Engines.Infrastructure.EngineEnvironment.DownloadRoot;
+                if (Directory.Exists(engines))
+                    Directory.Delete(engines, recursive: true);
+            });
+        }
+        return succeeded;
+
+        void Clean(Action action)
+        {
+            try { action(); }
+            catch (Exception ex) when (ex is not OutOfMemoryException)
+            {
+                succeeded = false;
+                Console.Error.WriteLine(ex.Message);
+            }
+        }
+    }
+}

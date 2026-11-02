@@ -1,0 +1,17 @@
+name: Suggérer une amélioration
+description: Proposer une nouvelle fonctionnalité ou une amélioration de Winzlee
+title: "[Suggestion] "
+labels: ["enhancement"]
+body:
+  - type: textarea
+    id: idea
+    attributes:
+      label: Votre idée
+      description: Que souhaitez-vous pouvoir faire avec Winzlee ?
+    validations:
+      required: true
+  - type: textarea
+    id: usage
+    attributes:
+      label: Utilité et exemple
+      description: Quel problème cela résoudrait-il ?

@@ -1,0 +1,35 @@
+# Local build artifacts and downloads
+**/bin/
+**/obj/
+**/publish/
+**/Releases/
+**/TestResults/
+**/artifacts/
+**/.cache/
+*.trx
+.audit-private/
+*.log
+*.zip
+*.7z
+*.exe
+*.dll
+
+# Secrets and machine-specific configuration (never commit credentials)
+.env
+.env.*
+!.env.example
+*.pfx
+*.p12
+*.pem
+*.key
+*.snk
+secrets.json
+appsettings.Development.local.json
+
+# OS and editor files
+.DS_Store
+Thumbs.db
+.vs/
+.idea/
+*.user
+*.suo
