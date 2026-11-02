@@ -1,0 +1,44 @@
+name: Winzlee preflight - validate release security check
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/scripts/check-credentials.ps1'
+      - '.github/workflows/release-rc1.yml'
+      - '.github/workflows/preflight.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  credentials:
+    name: Smoke test credential scanner on Windows PowerShell
+    runs-on: windows-latest
+    timeout-minutes: 10
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Check that a no-match Git grep returns exit code 1
+        shell: pwsh
+        run: |
+          $prior = $PSNativeCommandUseErrorActionPreference
+          $PSNativeCommandUseErrorActionPreference = $false
+          try {
+            git grep --cached -I -l -F '__WINZLEE_CREDENTIAL_PREFLIGHT_NO_MATCH_4d5ab34c__' -- . | Out-Null
+            $result = $LASTEXITCODE
+          }
+          finally {
+            $PSNativeCommandUseErrorActionPreference = $prior
+          }
+          if ($result -ne 1) { throw "Expected a clean no-match result of 1, received $result" }
+          $global:LASTEXITCODE = 0
+
+      - name: Run the exact same scanner used by RC1
+        shell: pwsh
+        run: |
+          & ./.github/scripts/check-credentials.ps1
+          if ($LASTEXITCODE -ne 0) { throw "Scanner left exit code $LASTEXITCODE" }
+          Write-Host "Windows credential preflight passed."
