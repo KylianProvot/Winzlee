@@ -12,14 +12,14 @@ permissions:
 
 jobs:
   dispatch:
-    if: \${{ github.repository == 'KylianProvot/Winzlee-Public' && github.ref == 'refs/heads/main' && github.event.head_commit.message == 'ci(internal): trigger validated RC1 draft build once' }}
+    if: ${{ github.repository == 'KylianProvot/Winzlee-Public' && github.ref == 'refs/heads/main' }}
     runs-on: ubuntu-latest
     timeout-minutes: 5
     steps:
       - name: Request official RC1 workflow with draft-release option
         env:
-          GH_TOKEN: \${{ github.token }}
-          GH_REPO: \${{ github.repository }}
+          GH_TOKEN: ${{ github.token }}
+          GH_REPO: ${{ github.repository }}
         shell: bash
         run: |
           set -euo pipefail
