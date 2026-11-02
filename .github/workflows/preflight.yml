@@ -27,7 +27,9 @@ jobs:
           $prior = $PSNativeCommandUseErrorActionPreference
           $PSNativeCommandUseErrorActionPreference = $false
           try {
-            git grep --cached -I -l -F '__WINZLEE_CREDENTIAL_PREFLIGHT_NO_MATCH_4d5ab34c__' -- . | Out-Null
+            # Generate at runtime so the probe string is never present in this workflow file.
+            $probe = [Guid]::NewGuid().ToString('N')
+            git grep --cached -I -l -F $probe -- . | Out-Null
             $result = $LASTEXITCODE
           }
           finally {
