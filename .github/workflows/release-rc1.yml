@@ -34,14 +34,26 @@ jobs:
           if ($forbidden.Count -gt 0) {
             throw "Sensitive filenames tracked in Git: $($forbidden -join ', ')"
           }
+          # Git grep returns 1 on "no matches". PowerShell 7.4+ otherwise treats
+          # native nonzero exits as terminating errors before we can inspect them.
+          # A real scan failure (anything other than 0 or 1) still blocks release.
           # Never echo candidate secret values to the GitHub Actions log.
-          $sensitive = @(git grep --cached -I -l -E -e '-----BEGIN [A-Z ]*PRIVATE KEY-----' -e 'ghp_[A-Za-z0-9]{36}' -e 'github_pat_[A-Za-z0-9_]{70,}' -- .)
-          if ($LASTEXITCODE -ne 0 -and $LASTEXITCODE -ne 1) {
-            throw "Credential scan failed"
+          $oldNativePreference = $PSNativeCommandUseErrorActionPreference
+          $PSNativeCommandUseErrorActionPreference = $false
+          try {
+            $sensitive = @(git grep --cached -I -l -E -e '-----BEGIN [A-Z ]*PRIVATE KEY-----' -e 'ghp_[A-Za-z0-9]{36}' -e 'github_pat_[A-Za-z0-9_]{70,}' -- .)
+            $grepExitCode = $LASTEXITCODE
           }
-          if ($sensitive.Count -gt 0) {
+          finally {
+            $PSNativeCommandUseErrorActionPreference = $oldNativePreference
+          }
+          if ($grepExitCode -notin @(0, 1)) {
+            throw "Credential scan failed with exit code $grepExitCode"
+          }
+          if ($grepExitCode -eq 0 -and $sensitive.Count -gt 0) {
             throw "Potential credentials detected in tracked files: $($sensitive -join ', ')"
           }
+          Write-Host "Tracked credential check completed successfully."
 
       - name: Install .NET 10
         uses: actions/setup-dotnet@v4
