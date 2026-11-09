@@ -96,7 +96,7 @@ jobs:
           name: Winzlee-RC1-audit-test-results
           path: ${{ runner.temp }}/winzlee-test-results/
           if-no-files-found: warn
-          retention-days: 14
+          retention-days: 3
 
       - name: Smoke-test Windows Setup install, update and uninstall in sandbox
         shell: pwsh
@@ -201,14 +201,14 @@ jobs:
           name: Winzlee-1.0.0-RC1-installable-packages
           path: ${{ runner.temp }}/winzlee-rc1-packages/
           if-no-files-found: error
-          retention-days: 14
+          retention-days: 3
 
       - name: Upload complete Winzlee RC1 portable preview
         uses: actions/upload-artifact@v4
         with:
           name: Winzlee-RC1-audit-win-x64-HatchZip-preview
           path: ${{ runner.temp }}/winzlee-v012/
-          retention-days: 14
+          retention-days: 3
 
   # Intentionally does not publish a public release. This job is manual, runs
   # only on main, waits for all Windows checks and creates a DRAFT.
