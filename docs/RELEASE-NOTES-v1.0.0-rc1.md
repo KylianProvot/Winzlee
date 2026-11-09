@@ -28,8 +28,8 @@ Il est conseillé de conserver une copie de vos données et de tester cette pré
 
 ## Crédits et licence
 
-Winzlee est développé par Kylian Provot à partir du projet open source [Filee](https://github.com/KnifeLemon/Filee), avec notamment [HatchZip](https://github.com/xevrion/hatchzip). Voir [la licence](https://github.com/KylianProvot/Winzlee-Public/blob/v1.0.0-rc1/app/LICENSE) et [les mentions tierces](https://github.com/KylianProvot/Winzlee-Public/blob/v1.0.0-rc1/app/THIRD-PARTY-NOTICES.md).
+Winzlee est développé par Kylian Provot à partir du projet open source [Filee](https://github.com/KnifeLemon/Filee), avec notamment [HatchZip](https://github.com/xevrion/hatchzip). Voir [la licence](https://github.com/KylianProvot/Winzlee/blob/v1.0.0-rc1/app/LICENSE) et [les mentions tierces](https://github.com/KylianProvot/Winzlee/blob/v1.0.0-rc1/app/THIRD-PARTY-NOTICES.md).
 
 ## Signaler un problème
 
-Utilisez [les issues GitHub](https://github.com/KylianProvot/Winzlee-Public/issues/new/choose) pour les bugs et suggestions. Ne communiquez pas de fichiers personnels ni de données sensibles dans une issue publique.
+Utilisez [les issues GitHub](https://github.com/KylianProvot/Winzlee/issues/new/choose) pour les bugs et suggestions. Ne communiquez pas de fichiers personnels ni de données sensibles dans une issue publique.
