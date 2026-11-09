@@ -4,6 +4,18 @@
 
 ## 1. Préparer le brouillon
 
+**État au 9 novembre 2026 :** le job Windows RC1 du dépôt de distribution a réussi (exécution `41417869823`) et les fichiers ont été sauvegardés localement par le mainteneur. Les artefacts Actions ont ensuite été supprimés pour libérer le quota. **Ne pas relancer une compilation seulement pour créer le brouillon.** La création automatique a échoué avec HTTP 403 ; utiliser en priorité la méthode manuelle ci-dessous.
+
+### Méthode manuelle à partir des fichiers RC1 déjà vérifiés
+
+1. Extraire sur le PC le ZIP `Winzlee-1.0.0-RC1-installable-packages` sauvegardé depuis GitHub Actions.
+2. Vérifier la présence des trois fichiers attendus ci-dessous et comparer leurs empreintes à `SHA256SUMS.txt` avec PowerShell (`Get-FileHash -Algorithm SHA256`).
+3. Dans [Nouvelle Release](https://github.com/KylianProvot/Winzlee-Public/releases/new), créer le tag `v1.0.0-rc1`, idéalement en ciblant le commit testé `14151a4497a12a0dfcc9519a9603a4a67210aa38`.
+4. Donner le titre **Winzlee v1.0.0 RC1**, reprendre le contenu de `docs/RELEASE-NOTES-v1.0.0-rc1.md`, joindre les trois fichiers, marquer **préversion** et cliquer **Save draft** (pas Publish).
+5. Examiner les fichiers du brouillon et effectuer les tests de la section 2.
+
+### Pour une nouvelle compilation future (non nécessaire à la création du brouillon RC1)
+
 Dans [Actions](https://github.com/KylianProvot/Winzlee-Public/actions/workflows/release-rc1.yml) :
 
 1. Ouvrir **Winzlee RC1 - Windows validation, packages and draft release**.
