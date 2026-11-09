@@ -1,0 +1,32 @@
+name: Internal - clean old Winzlee Actions artifacts
+on:
+  push:
+    branches: [main]
+    paths:
+      - .github/workflows/internal-clean-actions-storage.yml
+permissions:
+  contents: read
+  actions: write
+jobs:
+  cleanup:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Delete all existing Actions artifacts in this repository
+        env:
+          GH_TOKEN: ${{ github.token }}
+          GH_REPO: ${{ github.repository }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          page=1
+          while true; do
+            ids="$(gh api "repos/$GH_REPO/actions/artifacts?per_page=100&page=1" --jq '.artifacts[].id')"
+            if [ -z "$ids" ]; then
+              echo 'No artifacts remain.'
+              break
+            fi
+            while IFS= read -r id; do
+              echo "Deleting old artifact $id"
+              gh api --method DELETE "repos/$GH_REPO/actions/artifacts/$id"
+            done <<< "$ids"
+          done
