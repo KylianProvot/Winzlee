@@ -2,7 +2,7 @@
 
 **Winzlee** est une application Windows de conversion et de gestion de fichiers. Elle propose une roue d'actions accessible dans l'Explorateur avec **Ctrl + clic droit**, la conversion de formats compatibles, le renommage de masse et la gestion des archives.
 
-> **État : v1.0.0 RC1 en préparation.** Les éditions installateur et portable ont été testées pendant le développement privé. Le code importé dans ce dépôt doit encore passer ses propres contrôles avant la publication. Aucune version stable n’est disponible actuellement.
+> **État : v1.0.0 RC1 validée en compilation et tests Windows, publication en préparation.** La compilation complète du dépôt de distribution a réussi le 2 novembre 2026, avec création de l’installateur et du ZIP portable. **Aucune Release publique ni version stable n’est encore disponible.**
 
 ## Fonctionnalités
 
@@ -19,9 +19,9 @@
 - **Installateur EXE** : installation, raccourcis et désinstallation.
 - **ZIP portable** : extraction dans un dossier, sans installation.
 
-Les deux éditions ont été validées lors de la préparation privée de la RC1. Les futurs téléchargements officiels seront proposés dans les [Releases de Winzlee](https://github.com/KylianProvot/Winzlee-Public/releases) après leur validation ; aucun artefact temporaire ne constitue une publication officielle. Pour les essais, utiliser des copies de fichiers et conserver une sauvegarde des paramètres. Les mises à jour doivent préserver les préréglages et données utilisateur; leur validation réelle constitue un critère bloquant de la v1.0.0.
+Les deux éditions ont été construites et vérifiées par le workflow Windows RC1 du dépôt de distribution le 2 novembre 2026. Les futurs téléchargements officiels seront proposés dans les [Releases de Winzlee](https://github.com/KylianProvot/Winzlee-Public/releases) après leur validation ; aucun artefact temporaire ne constitue une publication officielle. Pour les essais, utiliser des copies de fichiers et conserver une sauvegarde des paramètres. Les mises à jour doivent préserver les préréglages et données utilisateur; leur validation réelle constitue un critère bloquant de la v1.0.0.
 
-La publication restera privée tant que les derniers contrôles Windows et la confidentialité de l'historique Git ne seront pas validés.
+Le dépôt restera privé jusqu’à la vérification finale des fichiers téléchargeables, de l’historique et des informations rendues publiques.
 
 **Suivi de la publication :** [liste de vérification](RELEASE-CHECKLIST.md) · [guide de création de la Release](RELEASING.md) · [feuille de route à jour](docs/ROADMAP.md). Le workflow RC1 peut préparer un brouillon de Release après ses tests ; il ne publie aucun téléchargement sans validation finale.
 
@@ -33,7 +33,7 @@ La RC1 est préparée pour fonctionner **indépendamment de Filee** : identité 
 
 ## Création et crédits
 
-**Winzlee — Kylian Provot ([KylianProvot](https://github.com/KylianProvot))**, étudiant en **2ᵉ année de BUT Métiers du Multimédia et de l'Internet (MMI)**.
+**Winzlee — Kylian Provot ([KylianProvot](https://github.com/KylianProvot))**.
 
 Winzlee s'appuie largement sur les projets open source [Filee — KnifeLemon](https://github.com/KnifeLemon/Filee) et [HatchZip — xevrion](https://github.com/xevrion/hatchzip). Il utilise notamment des composants de [7-Zip](https://www.7-zip.org/). Développement et amélioration assistés par **ChatGPT (OpenAI)**.
 
