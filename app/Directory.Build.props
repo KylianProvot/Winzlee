@@ -20,7 +20,7 @@
     <Copyright>Copyright (c) Filee contributors; Winzlee modifications (c) Kylian Provot</Copyright>
 
     <!-- Single source of truth for the GitHub repository (used by the updater and the About page). -->
-    <FileeRepositoryUrl>https://github.com/KylianProvot/Winzlee-Public</FileeRepositoryUrl>
+    <FileeRepositoryUrl>https://github.com/KylianProvot/Winzlee</FileeRepositoryUrl>
     <RepositoryUrl>$(FileeRepositoryUrl)</RepositoryUrl>
   </PropertyGroup>
 
