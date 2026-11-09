@@ -29,3 +29,12 @@ The manual workflow [`.github/workflows/release-rc1.yml`](.github/workflows/rele
 ## Maintainer note
 
 The GitHub connector used during preparation can edit repository files but does not expose direct workflow dispatch or visibility-changing actions. Automatic draft creation requires GitHub Actions write permission and previously failed with HTTP 403; manual draft creation from the saved and verified packages is the fallback. The final approval and public publication remain manual. Never claim publication is complete until the Release, assets and public download URLs have been verified.
+
+
+## Publication de la RC1 — 9 novembre 2026
+
+- Dépôt `KylianProvot/Winzlee` devenu public (anciennement `Winzlee-Public`).
+- GitHub Release [`v1.0.0-rc1`](https://github.com/KylianProvot/Winzlee/releases/tag/v1.0.0-rc1) publiée avec statut préversion.
+- Installateur, archive portable et SHA256SUMS joints ; SHA-256 des deux binaires conformes aux digests GitHub.
+- Site statique de téléchargement dans `docs/`; son hébergement via GitHub Pages doit être activé dans les réglages du dépôt.
+- La version stable v1.0.0 nécessite encore ses propres validations.
