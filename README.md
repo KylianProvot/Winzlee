@@ -2,7 +2,7 @@
 
 **Winzlee** est une application Windows de conversion et de gestion de fichiers. Elle propose une roue d'actions accessible dans l'Explorateur avec **Ctrl + clic droit**, la conversion de formats compatibles, le renommage de masse et la gestion des archives.
 
- > **État : v1.0.0 RC1 publiée (préversion Windows x64).** Les installateur et version portable sont disponibles dans les [Releases](https://github.com/KylianProvot/Winzlee/releases/tag/v1.0.0-rc1). La version stable v1.0.0 n'est pas encore publiée.
+> **État : v1.0.0 RC1 publiée (préversion Windows x64).** Les installateur et version portable sont disponibles dans les [Releases](https://github.com/KylianProvot/Winzlee/releases/tag/v1.0.0-rc1). La version stable v1.0.0 n'est pas encore publiée.
 
 [**Site de téléchargement (sources)**](docs/index.html) · [**Télécharger l’installateur**](https://github.com/KylianProvot/Winzlee/releases/download/v1.0.0-rc1/Winzlee-1.0.0-rc1-win-Setup.exe) · [**Télécharger la version portable**](https://github.com/KylianProvot/Winzlee/releases/download/v1.0.0-rc1/Winzlee-1.0.0-rc1-win-Portable.zip)
 
