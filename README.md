@@ -2,7 +2,9 @@
 
 **Winzlee** est une application Windows de conversion et de gestion de fichiers. Elle propose une roue d'actions accessible dans l'Explorateur avec **Ctrl + clic droit**, la conversion de formats compatibles, le renommage de masse et la gestion des archives.
 
-> **État : v1.0.0 RC1 validée en compilation et tests Windows, publication en préparation.** La compilation complète du dépôt de distribution a réussi le 2 novembre 2026, avec création de l’installateur et du ZIP portable. **Aucune Release publique ni version stable n’est encore disponible.**
+ > **État : v1.0.0 RC1 publiée (préversion Windows x64).** Les installateur et version portable sont disponibles dans les [Releases](https://github.com/KylianProvot/Winzlee/releases/tag/v1.0.0-rc1). La version stable v1.0.0 n'est pas encore publiée.
+
+[**Site de téléchargement (sources)**](docs/index.html) · [**Télécharger l’installateur**](https://github.com/KylianProvot/Winzlee/releases/download/v1.0.0-rc1/Winzlee-1.0.0-rc1-win-Setup.exe) · [**Télécharger la version portable**](https://github.com/KylianProvot/Winzlee/releases/download/v1.0.0-rc1/Winzlee-1.0.0-rc1-win-Portable.zip)
 
 ## Fonctionnalités
 
@@ -15,15 +17,15 @@
 
 ## Installation et distribution
 
-**Deux éditions Windows x64 sont prévues pour la v1.0.0 :**
+**Deux éditions Windows x64 sont disponibles pour la RC1 :**
 - **Installateur EXE** : installation, raccourcis et désinstallation.
 - **ZIP portable** : extraction dans un dossier, sans installation.
 
-Les deux éditions ont été construites et vérifiées par le workflow Windows RC1 du dépôt de distribution le 2 novembre 2026. Les futurs téléchargements officiels seront proposés dans les [Releases de Winzlee](https://github.com/KylianProvot/Winzlee-Public/releases) après leur validation ; aucun artefact temporaire ne constitue une publication officielle. Pour les essais, utiliser des copies de fichiers et conserver une sauvegarde des paramètres. Les mises à jour doivent préserver les préréglages et données utilisateur; leur validation réelle constitue un critère bloquant de la v1.0.0.
+Les deux éditions ont été construites et vérifiées par le workflow Windows RC1 du dépôt de distribution le 2 novembre 2026. Les deux fichiers validés sont disponibles dans les [Releases de Winzlee](https://github.com/KylianProvot/Winzlee/releases/tag/v1.0.0-rc1). Cette RC1 est une préversion, pas encore une version stable. Pour les essais, utiliser des copies de fichiers et conserver une sauvegarde des paramètres. Les mises à jour doivent préserver les préréglages et données utilisateur; leur validation réelle constitue un critère bloquant de la v1.0.0.
 
-Le dépôt restera privé jusqu’à la vérification finale des fichiers téléchargeables, de l’historique et des informations rendues publiques.
+Le dépôt de distribution est public depuis le 9 novembre 2026 et la Release RC1 est publiée comme préversion.
 
-**Suivi de la publication :** [liste de vérification](RELEASE-CHECKLIST.md) · [guide de création de la Release](RELEASING.md) · [feuille de route à jour](docs/ROADMAP.md). Le workflow RC1 peut préparer un brouillon de Release après ses tests ; il ne publie aucun téléchargement sans validation finale.
+**Suivi de la publication :** [liste de vérification](RELEASE-CHECKLIST.md) · [guide de création de la Release](RELEASING.md) · [feuille de route à jour](docs/ROADMAP.md). Le site de téléchargement statique est préparé dans `docs/` ; son activation GitHub Pages reste distincte de la publication de la Release.
 
 ### Coexistence avec Filee
 
@@ -43,8 +45,8 @@ L'attribution des auteurs d'origine, les licences et les autres composants sont 
 
 Le code de l'application se trouve dans `app/`. Les fichiers de référence hérités de Filee (notamment les README multilingues) ne décrivent pas forcément le périmètre de distribution Windows de Winzlee. L'objectif de la RC1 est d'unifier la documentation, d'auditer les mises à jour et de conserver le comportement existant sans régression. Les commandes de packaging transmettent explicitement `-Version 1.0.0-rc1` ; la version de développement par défaut est également `1.0.0-rc1`.
 
-Projet : [github.com/KylianProvot/Winzlee-Public](https://github.com/KylianProvot/Winzlee-Public).
+Projet : [github.com/KylianProvot/Winzlee-Public](https://github.com/KylianProvot/Winzlee).
 
-Pour signaler un bug ou proposer une amélioration, utiliser les [issues Winzlee](https://github.com/KylianProvot/Winzlee-Public/issues/new/choose). Pour une faille de sécurité, consulter [SECURITY.md](SECURITY.md) et ne pas publier les détails sensibles dans une issue.
+Pour signaler un bug ou proposer une amélioration, utiliser les [issues Winzlee](https://github.com/KylianProvot/Winzlee/issues/new/choose). Pour une faille de sécurité, consulter [SECURITY.md](SECURITY.md) et ne pas publier les détails sensibles dans une issue.
 
 **Compilation depuis les sources :** installer le SDK .NET 10, puis lancer `dotnet restore app/Filee.slnx` et `dotnet build app/Filee.slnx -c Release`. La préparation des installeurs Windows est documentée par les scripts `app/build/`.
