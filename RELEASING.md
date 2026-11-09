@@ -1,8 +1,8 @@
 # Publier Winzlee v1.0.0 RC1
 
-> Guide du mainteneur. La Release **n'est pas publiée automatiquement**.
+> Guide du mainteneur. **RC1 publiée en préversion le 9 novembre 2026** ; la procédure ci-dessous est conservée pour référence et pour les futures versions.
 
-## 1. Préparer le brouillon
+## 1. Historique de préparation du brouillon (déjà effectué)
 
 **État au 9 novembre 2026 :** le job Windows RC1 du dépôt de distribution a réussi (exécution `41417869823`) et les fichiers ont été sauvegardés localement par le mainteneur. Les artefacts Actions ont ensuite été supprimés pour libérer le quota. **Ne pas relancer une compilation seulement pour créer le brouillon.** La création automatique a échoué avec HTTP 403 ; utiliser en priorité la méthode manuelle ci-dessous.
 
@@ -10,13 +10,13 @@
 
 1. Extraire sur le PC le ZIP `Winzlee-1.0.0-RC1-installable-packages` sauvegardé depuis GitHub Actions.
 2. Vérifier la présence des trois fichiers attendus ci-dessous et comparer leurs empreintes à `SHA256SUMS.txt` avec PowerShell (`Get-FileHash -Algorithm SHA256`).
-3. Dans [Nouvelle Release](https://github.com/KylianProvot/Winzlee-Public/releases/new), créer le tag `v1.0.0-rc1`, idéalement en ciblant le commit testé `14151a4497a12a0dfcc9519a9603a4a67210aa38`.
+3. Dans [Nouvelle Release](https://github.com/KylianProvot/Winzlee/releases/new), créer le tag `v1.0.0-rc1`, idéalement en ciblant le commit testé `14151a4497a12a0dfcc9519a9603a4a67210aa38`.
 4. Donner le titre **Winzlee v1.0.0 RC1**, reprendre le contenu de `docs/RELEASE-NOTES-v1.0.0-rc1.md`, joindre les trois fichiers, marquer **préversion** et cliquer **Save draft** (pas Publish).
 5. Examiner les fichiers du brouillon et effectuer les tests de la section 2.
 
 ### Pour une nouvelle compilation future (non nécessaire à la création du brouillon RC1)
 
-Dans [Actions](https://github.com/KylianProvot/Winzlee-Public/actions/workflows/release-rc1.yml) :
+Dans [Actions](https://github.com/KylianProvot/Winzlee/actions/workflows/release-rc1.yml) :
 
 1. Ouvrir **Winzlee RC1 - Windows validation, packages and draft release**.
 2. Cliquer **Run workflow**.
@@ -27,9 +27,9 @@ Sans la case cochée, le workflow effectue seulement les tests et produit des **
 
 Le job Windows restaure et compile la solution, exécute les six projets de tests, contrôle l'installateur en sandbox, teste les dépendances d'archives et construit les deux distributions RC1. Le second job récupère les fichiers de **cette même exécution**, vérifie leurs noms, l'intégrité SHA-256 et le contenu essentiel du ZIP, puis crée une **GitHub Release en brouillon**, marquée préversion. Il n'écrase pas une Release du même tag déjà existante.
 
-## 2. Vérifier le brouillon
+## 2. Vérification des fichiers de Release (déjà publiés)
 
-Dans [Releases](https://github.com/KylianProvot/Winzlee-Public/releases), ouvrir le brouillon `v1.0.0-rc1`.
+Dans [Releases](https://github.com/KylianProvot/Winzlee/releases), ouvrir le brouillon `v1.0.0-rc1`.
 
 Fichiers attendus :
 
@@ -51,18 +51,18 @@ Tester ensuite les deux téléchargements sous Windows :
 
 Le workflow automatise des contrôles, **mais ne remplace pas ces essais sur un vrai poste**.
 
-## 3. Contrôler l'ouverture du dépôt
+## 3. Contrôles réalisés avant l'ouverture du dépôt
 
 - Vérifier que le dépôt ne contient ni secret, fichier personnel, paramètre local ni information qui ne doit pas devenir publique.
 - Examiner aussi les anciennes versions et l'historique (le dépôt a été réinitialisé avec un commit racine propre).
 - Vérifier les licences et crédits de Filee, HatchZip et des composants distribués.
-- Maintenir `KylianProvot/Winzlee` **privé**.
+- Le dépôt de distribution `KylianProvot/Winzlee` est public. Vérifier que tout dépôt source de travail distinct reste privé.
 
-Ne changer la visibilité de **Winzlee-Public** qu'après ces vérifications.
+Ne changer la visibilité de **Winzlee** qu'après ces vérifications.
 
 ## 4. Publication finale
 
-Une fois les contrôles validés, passer **Winzlee-Public** en public depuis **Settings → General → Danger Zone → Change repository visibility** (opération manuelle avec les droits administrateur). Ouvrir le brouillon de Release et cliquer **Publish release** en conservant le statut de **préversion**.
+**Effectué le 9 novembre 2026 :** dépôt `Winzlee` public et [Release RC1 publiée en préversion](https://github.com/KylianProvot/Winzlee/releases/tag/v1.0.0-rc1). Pour une future release, contrôler les assets et leurs SHA-256 avant de publier.
 
 Tester les téléchargements dans un navigateur déconnecté de GitHub. Les liens directs vers l'installateur et le ZIP portable ne sont considérés comme valides qu'après la publication et ce test.
 
