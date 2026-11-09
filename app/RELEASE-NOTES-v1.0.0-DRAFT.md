@@ -22,9 +22,9 @@ Winzlee est une application Windows de conversion et de gestion de fichiers, ave
 
 La RC1 validée utilise les noms `Winzlee-1.0.0-rc1-win-Setup.exe` et `Winzlee-1.0.0-rc1-win-Portable.zip`.
 
-## Validation disponible au 1er novembre 2026
+## Validation disponible au 2 novembre 2026
 
-- [Exécution GitHub Actions RC1 réussie](https://github.com/KylianProvot/Winzlee/actions/runs/41290679277) : compilation complète, six suites de tests, essais d'installation/mise à jour/désinstallation en sandbox et fabrication des packages.
+- [Validation GitHub Actions RC1 du dépôt de distribution](https://github.com/KylianProvot/Winzlee-Public/actions/runs/41417869823) : compilation complète, six suites de tests, essais d'installation/mise à jour/désinstallation en sandbox et fabrication des packages **réussis**. La création automatique de la Release brouillon a échoué séparément (autorisation HTTP 403), sans remettre en cause les tests Windows.
 - Essais utilisateur sur Windows : installation, exécution, conversions, désinstallation et utilisation de la version portable sans anomalie rapportée.
 - **Reste à vérifier avant stable** : mise à jour à partir d'une ancienne installation avec paramètres, coexistence réelle avec Filee, contrôle final des métadonnées/licences et éventuels scénarios d'échec.
 
