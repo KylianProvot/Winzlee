@@ -1,6 +1,6 @@
 # Feuille de route Winzlee
 
-Dernière mise à jour : 2 novembre 2026.
+Dernière mise à jour : 9 novembre 2026.
 
 ## État actuel
 
@@ -13,11 +13,11 @@ Winzlee est en préparation de la **v1.0.0 RC1** pour Windows x64. Les anciens d
 | Conversion, renommage de masse et opérations sur archives | Testés pendant le développement |
 | Installateur Windows et édition portable | Construits et testés manuellement |
 | Tests automatisés Windows RC1 (dépôt de développement) | Réussis le 1er novembre 2026 |
-| Recompilation et tests depuis **Winzlee-Public/main** | À effectuer avant publication |
+| Compilation et tests Windows complets depuis **Winzlee-Public** | Réussis le 2 novembre 2026, exécution `41417869823` (job Windows) |
 | Mise à jour d'une version existante avec conservation des réglages | À vérifier sur un vrai PC |
 | Coexistence avec Filee et extensions Explorateur | À vérifier sur un vrai PC |
-| Vérification finale du contenu publiable, licences, données privées | En cours |
-| Release GitHub RC1 et téléchargements publics | Non publiée |
+| Vérification finale du contenu publiable, licences, données privées | Audit de préparation effectué le 9 novembre ; validation humaine finale encore nécessaire |
+| Release GitHub RC1 et téléchargements publics | Non publiée ; packages validés sauvegardés localement, artefacts Actions nettoyés |
 | Version stable v1.0.0 | Après validation de la RC1 |
 
 ## Publication
